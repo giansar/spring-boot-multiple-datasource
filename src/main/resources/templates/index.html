@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+    <head th:replace="fragments/head::head">
+        <link rel="stylesheet" href="../static/css/semantic.min.css" type="text/css"/>
+        <title>DEMO | Multiple Datasource</title>
+    </head>
+    <body>
+        <div th:replace="fragments/navbar::navbar"></div>
+        <div class="ui container" style="padding-top: 4em; padding-bottom: 4em">
+            <div th:include="fragments/divisionAndDepartment::divAndDept"></div>
+        </div>
+        <div th:replace="fragments/footer::footer"></div>
+        <div th:replace="fragments/script::script"></div>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('.pointing.secondary.menu .item').tab();
+            });
+        </script>
+    </body>
+</html>

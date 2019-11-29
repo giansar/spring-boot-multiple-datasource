@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" >
+    <head>
+        <link rel="stylesheet" href="../../static/css/semantic.min.css" type="text/css"/>
+        <title>DEMO | Multiple Datasource</title>
+    </head>
+    <body>
+        <div th:fragment="divAndDept">
+            <div class="ui pointing secondary menu">
+                <a class="item active" data-tab="first">First Tab</a>
+                <a class="item" data-tab="second">Second Tab</a>
+            </div>
+            <div class="ui tab active" data-tab="first">
+                <table class="ui striped table" id="divisionTable">
+                    <thead>
+                        <tr>
+                            <th>Division ID</th>
+                            <th>Description</th>
+                            <th>Updated By</th>
+                            <th>Updated At</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="division : ${divisions}">
+                            <td th:text="${division.divisionId}"></td>
+                            <td th:text="${division.description}"></td>
+                            <td th:text="${division.userUpdated}"></td>
+                            <td th:text="${division.datetimeUpdated}"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="ui tab" data-tab="second">
+                <table class="ui striped table" id="departmentTable">
+                    <thead>
+                        <tr>
+                            <th>Department ID</th>
+                            <th>Description</th>
+                            <th>Updated By</th>
+                            <th>Updated At</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="department : ${departments}">
+                            <td th:text="${department.departmentId}"></td>
+                            <td th:text="${department.description}"></td>
+                            <td th:text="${department.userUpdated}"></td>
+                            <td th:text="${department.datetimeUpdated}"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </body>
+</html>
